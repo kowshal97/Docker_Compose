@@ -10,17 +10,20 @@ A minimal multi-service app:
 
 ## Project Layout
 
+<pre>
 my_project/
 ├─ docker-compose.yml
 ├─ web/
-│ ├─ Dockerfile
-│ ├─ app.py
-│ └─ requirements.txt
+│  ├─ Dockerfile
+│  ├─ app.py
+│  └─ requirements.txt
 ├─ database/
-│ ├─ Dockerfile
-│ └─ init.sql
+│  ├─ Dockerfile
+│  └─ init.sql
 └─ cache/
-└─ Dockerfil
+   └─ Dockerfile
+</pre>
+
 
 
 ## Quick Start
