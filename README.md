@@ -9,3 +9,15 @@ A minimal multi-service app:
 - Docker Desktop (with `docker compose`)
 
 ## Project Layout
+
+my_project/
+├─ docker-compose.yml
+├─ web/
+│ ├─ Dockerfile
+│ ├─ app.py
+│ └─ requirements.txt
+├─ database/
+│ ├─ Dockerfile
+│ └─ init.sql
+└─ cache/
+└─ Dockerfil
