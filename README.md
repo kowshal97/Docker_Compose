@@ -31,7 +31,12 @@ my_project/
 # from repo root
 docker compose up -d --build
 # open http://localhost:8080
-
+```
 ## Scaling (demo)
 Remove/empty the ports: block under web before scaling to avoid port conflicts.
+```bash
+docker compose up -d --scale web=3 --scale database=2
+docker compose ps
+```
+
 
