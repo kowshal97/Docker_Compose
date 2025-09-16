@@ -21,3 +21,11 @@ my_project/
 │ └─ init.sql
 └─ cache/
 └─ Dockerfil
+
+
+## Quick Start
+```bash
+# from repo root
+docker compose up -d --build
+# open http://localhost:8080
+
