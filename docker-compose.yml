@@ -1,0 +1,50 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: web/Dockerfile
+    environment:
+      DB_HOST: database
+      DB_NAME: appdb
+      DB_USER: appuser
+      DB_PASSWORD: apppass
+      DB_PORT: "5432"
+      REDIS_HOST: cache
+      REDIS_PORT: "6379"
+    depends_on:
+      - database
+      - cache
+    ports:
+      - "8080:8000"
+    healthcheck:                       # ← only here for web
+      test: ["CMD", "curl", "-f", "http://localhost:8000/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  database:
+    build:
+      context: .
+      dockerfile: database/Dockerfile
+    environment:
+      POSTGRES_DB: appdb
+      POSTGRES_USER: appuser
+      POSTGRES_PASSWORD: apppass
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  cache:
+    build:
+      context: .
+      dockerfile: cache/Dockerfile
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
