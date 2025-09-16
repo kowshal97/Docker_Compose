@@ -39,4 +39,22 @@ docker compose up -d --scale web=3 --scale database=2
 docker compose ps
 ```
 
+## Screenshots
+
+**Services healthy (`docker compose ps`)**  
+![ps-healthy](screenshots/Screenshot 2025-09-16 093743.png)
+
+**App running (`http://localhost:8080`)**  
+![app-home](screenshots/Screenshot 2025-09-16 093656.png)
+
+**Readiness (`/ready`)**  
+![ready](screenshots/Screenshot 2025-09-16 094133.png)
+
+**Scaling (`web=3`, `database=2`)**  
+![scaling](screenshots/Screenshot 2025-09-16 094538.png)
+
+**Teardown (`docker compose down` then `ps`)**  
+![down-empty](screenshots/Screenshot 2025-09-16 093722.png)
+
+
 
